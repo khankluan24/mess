@@ -52,7 +52,13 @@ export const authOptions: AuthOptions = {
   debug: process.env.NODE_ENV === "development",
   session: {
     strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+    updateAge: 24 * 60 * 60, // 24 hours
   },
+  jwt: {
+    maxAge: 60 * 60 * 24 * 30, // 30 days
+  },
+
   secret: process.env.NEXTAUTH_SECRET,
 };
 
